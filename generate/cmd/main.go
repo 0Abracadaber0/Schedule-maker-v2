@@ -1,11 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"generate/internal/config"
+	"generate/internal/router"
 	"log/slog"
-	"net/http"
 	"os"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 const (
@@ -16,19 +17,22 @@ const (
 func main() {
 	cfg := config.MustLoad()
 
-	fmt.Println(cfg)
-
 	log := setupLogger(cfg.Env)
 
 	log.Info("Starting application",
 		slog.String("env", cfg.Env),
-		slog.Any("cfg", cfg),
 	)
 
-	server := &http.Server{
-		Addr: ":8088",
+	// TODO: Custom config
+	app := fiber.New()
+
+	// TODO: Logs into router and handlers
+	router.SetupRoutes(app)
+
+	err := app.Listen(":8088")
+	if err != nil {
+		return
 	}
-	server.ListenAndServe()
 }
 
 func setupLogger(env string) *slog.Logger {
