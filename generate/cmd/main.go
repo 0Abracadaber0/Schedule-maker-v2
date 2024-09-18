@@ -23,11 +23,15 @@ func main() {
 		slog.String("env", cfg.Env),
 	)
 
-	// TODO: Custom config
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		AppName: "Generate service",
+	})
+	app.Use(func(c *fiber.Ctx) error {
+		c.Locals("logger", log)
+		return c.Next()
+	})
 
-	// TODO: Logs into router and handlers
-	router.SetupRoutes(app)
+	router.SetupRoutes(app, log)
 
 	err := app.Listen(":8088")
 	if err != nil {
