@@ -21,5 +21,7 @@ func GenerateHandler(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusBadRequest).SendString(err.Error())
 	}
 
+	// data.Curriculums и data.Teachers
+
 	return c.JSON(data)
 }
