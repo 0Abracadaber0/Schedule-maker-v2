@@ -2,7 +2,6 @@ package config
 
 import (
 	"flag"
-	"fmt"
 	"os"
 
 	"github.com/ilyakaznacheev/cleanenv"
@@ -14,8 +13,6 @@ type Config struct {
 
 func MustLoad() *Config {
 	path := fetchConfigPath()
-	execPath, _ := os.Executable()
-	fmt.Println(execPath)
 
 	if path == "" {
 		panic("Config path is empty")

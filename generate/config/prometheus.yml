@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'generate'
+    static_configs:
+      - targets: ['generate:8088']
