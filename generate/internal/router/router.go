@@ -8,8 +8,10 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func PostGenerateHandler(ctx *fiber.Ctx) error {
-	return handler.GenerateHandler(ctx)
+func PostGenerateHandler(log *slog.Logger) fiber.Handler {
+	return func(ctx *fiber.Ctx) error {
+		return handler.GenerateHandler(ctx, log)
+	}
 }
 
 func SetupRoutes(app *fiber.App, log *slog.Logger) {
@@ -28,10 +30,9 @@ func SetupRoutes(app *fiber.App, log *slog.Logger) {
 		return err
 	})
 
-	app.Post("/generate", PostGenerateHandler)
+	app.Post("/generate", PostGenerateHandler(log))
 	app.Get("/metrics", func(c *fiber.Ctx) error {
 		return c.Redirect("http://localhost:3000", fiber.StatusFound)
 	})
 
-	// TODO: tests
 }

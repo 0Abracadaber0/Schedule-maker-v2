@@ -34,6 +34,7 @@ type Teacher struct {
 	Name            string   `json:"name"`
 	Subjects        []string `json:"subjects"`
 	CanGiveLectures bool     `json:"can_give_lectures"`
+	Load            int      `json:"load"`
 }
 
 type Classroom struct {
