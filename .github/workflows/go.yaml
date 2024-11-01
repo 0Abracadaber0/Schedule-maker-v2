@@ -1,0 +1,39 @@
+name: Go Microservice Build
+
+on:
+  pull_request:
+    branches: [ "master" ]
+    paths:
+      - 'generate/**'
+      - 'export/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [ "generate", "export" ]
+
+    env:
+      SERVICE_PATH: ${{ matrix.service }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+          cache-dependency-path: ${{ env.SERVICE_PATH }}/go.sum
+
+      - name: Install dependencies
+        working-directory: ${{ env.SERVICE_PATH }}
+        run: go mod download
+
+      - name: Build
+        working-directory: ${{ env.SERVICE_PATH }}
+        run: go build -v ./...
+
+      - name: Test
+        working-directory: ${{ env.SERVICE_PATH }}
+        run: go test -v ./...
