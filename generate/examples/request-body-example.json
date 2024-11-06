@@ -1,0 +1,204 @@
+{
+  "subjects" : [
+    {
+      "name": "Math",
+      "teachers": [
+        "John",
+        "Ivan",
+        "Anna"
+      ]
+    },
+    {
+      "name": "IT",
+      "teachers": [
+        "Paul",
+        "Peter",
+        "Anna"
+      ]
+    },
+    {
+      "name": "Music",
+      "teachers": [
+        "Yamato",
+        "Genji"
+      ]
+    },
+    {
+      "name": "Geography",
+      "teachers": [
+        "Donald",
+        "Vladimir"
+      ]
+    }
+  ],
+  "groups" : [
+    {
+      "name": "10701122",
+      "curriculum": "curriculum1"
+    },
+    {
+      "name": "10701222",
+      "curriculum": "curriculum1"
+    },
+    {
+      "name": "10701322",
+      "curriculum": "curriculum1"
+    },
+    {
+      "name": "10702122",
+      "curriculum": "curriculum2"
+    },
+    {
+      "name": "10702222",
+      "curriculum": "curriculum2"
+    },
+    {
+      "name": "10702322",
+      "curriculum": "curriculum3"
+    },
+    {
+      "name": "10702422",
+      "curriculum": "curriculum3"
+    }
+  ],
+
+  "curriculums": [
+    {
+      "name": "curriculum1",
+      "subjects": [
+        {
+          "name": "Math",
+          "lectures": 2,
+          "practices": 2,
+          "laboratories": 0,
+          "flow": "flow1"
+        },
+        {
+          "name": "IT",
+          "lectures": 2,
+          "practices": 0,
+          "laboratories": 2,
+          "flow": "flow11-24"
+        },
+        {
+          "name": "Music",
+          "lectures": 0,
+          "practices": 1,
+          "laboratories": 0,
+          "flow": "flow1"
+        }
+      ]
+    },
+    {
+      "name": "curriculum2",
+      "subjects": [
+        {
+          "name": "Math",
+          "lectures": 1,
+          "practices": 2,
+          "laboratories": 0,
+          "flow": "flow2"
+        },
+        {
+          "name": "IT",
+          "lectures": 2,
+          "practices": 0,
+          "laboratories": 2,
+          "flow": "flow11-24"
+        },
+        {
+          "name": "Music",
+          "lectures": 0,
+          "practices": 1,
+          "laboratories": 0,
+          "flow": "flow1"
+        },
+        {
+          "name": "Geography",
+          "lectures": 1,
+          "practices": 1,
+          "laboratories": 0,
+          "flow": "flow22-24"
+        }
+      ]
+    },
+    {
+      "name": "curriculum3",
+      "subjects": [
+        {
+          "name": "Math",
+          "lectures": 1,
+          "practices": 2,
+          "laboratories": 0,
+          "flow": "flow2"
+        },
+        {
+          "name": "IT",
+          "lectures": 2,
+          "practices": 0,
+          "laboratories": 2,
+          "flow": "flow11-24"
+        },
+        {
+          "name": "Geography",
+          "lectures": 1,
+          "practices": 2,
+          "laboratories": 0,
+          "flow": "flow22-24"
+        }
+      ]
+    }
+  ],
+  "classrooms": [
+    {
+      "name": "306",
+      "type": "Lecture",
+      "subjects": [
+        "Math",
+        "IT",
+        "Music",
+        "Geography"
+      ]
+    },
+    {
+      "name": "116",
+      "type": "Practice",
+      "subjects": [
+        "Math",
+        "IT",
+        "Music",
+        "Geography"
+      ]
+    },
+    {
+      "name": "507",
+      "type": "Practice",
+      "subjects": [
+        "Math",
+        "IT",
+        "Music",
+        "Geography"
+      ]
+    },
+    {
+      "name": "225",
+      "type": "Laboratory",
+      "subjects": [
+        "Math",
+        "IT",
+        "Music",
+        "Geography"
+      ]
+    },
+    {
+      "name": "214",
+      "type": "Laboratory",
+      "subjects": [
+        "Math",
+        "IT",
+        "Music",
+        "Geography"
+      ]
+    }
+  ]
+}
