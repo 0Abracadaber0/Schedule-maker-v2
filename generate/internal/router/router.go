@@ -29,9 +29,5 @@ func SetupRoutes(app *fiber.App, log *slog.Logger) {
 	})
 
 	app.Post("/generate", PostGenerateHandler)
-	app.Get("/metrics", func(c *fiber.Ctx) error {
-		return c.Redirect("http://localhost:3000", fiber.StatusFound)
-	})
-
 	// TODO: tests
 }
