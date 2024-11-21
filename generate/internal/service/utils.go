@@ -18,7 +18,7 @@ func findTeacher(
 	teachers *[]models.Teacher,
 	plan models.Plan,
 	lessonType models.LessonType,
-) (models.Teacher, error) {
+) (string, error) {
 	// TODO: tests
 	var requiredLoad int
 
@@ -30,10 +30,11 @@ func findTeacher(
 	case models.Laboratory:
 		requiredLoad = plan.Laboratories * 2
 	default:
-		return models.Teacher{}, errors.New("unknown lessonType")
+		return "", errors.New("unknown lessonType")
 	}
 
-	for _, teacher := range *teachers {
+	for i := range *teachers {
+		teacher := &(*teachers)[i]
 		if teacher.Load >= requiredLoad {
 			canTeach := false
 			for _, subject := range teacher.Subjects {
@@ -44,10 +45,11 @@ func findTeacher(
 			}
 
 			if canTeach {
-				return teacher, nil
+				teacher.Load -= requiredLoad
+				return teacher.Name, nil
 			}
 		}
 	}
 
-	return models.Teacher{}, errors.New("teacher not found")
+	return "", errors.New("teacher not found")
 }
