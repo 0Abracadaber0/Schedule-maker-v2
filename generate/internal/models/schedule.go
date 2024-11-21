@@ -8,41 +8,39 @@ const (
 	Laboratory LessonType = "Laboratory"
 )
 
-type Lesson struct {
-	Subject   string
-	Teacher   string
-	Group     int
-	Type      LessonType
-	TimeSlot  int
-	Classroom string
+type Teacher struct {
+	Name     string   `json:"name"`
+	Load     int      `json:"load"`
+	Subjects []string `json:"subjects"`
 }
 
-type Subject struct {
-	Name            string `json:"name"`
-	LectureCount    int    `json:"lecture_count"`
-	PracticeCount   int    `json:"practice_count"`
-	LaboratoryCount int    `json:"laboratory_count"`
+type Group struct {
+	Name       string `json:"name"`
+	Curriculum string `json:"curriculum"`
 }
 
 type Curriculum struct {
-	Group    string    `json:"group"`
-	Shift    int       `json:"shift"`
-	Subjects []Subject `json:"subjects"`
+	Name     string `json:"name"`
+	Subjects []Plan `json:"subjects"`
 }
 
-type Teacher struct {
-	Name            string   `json:"name"`
-	Subjects        []string `json:"subjects"`
-	CanGiveLectures bool     `json:"can_give_lectures"`
+type Plan struct {
+	Name         string `json:"name"`
+	Lectures     int    `json:"lectures"`
+	Practices    int    `json:"practices"`
+	Laboratories int    `json:"laboratories"`
+	Flow         string `json:"flow"`
 }
 
 type Classroom struct {
-	Building string     `json:"building"`
-	Number   string     `json:"number"`
-	Capacity int        `json:"capacity"`
+	Name     string     `json:"name"`
 	Type     LessonType `json:"type"`
+	Subjects []string   `json:"subjects"`
 }
 
-type TimeSlot struct {
-	Slot int `json:"slot"`
+type Lesson struct {
+	Subject string
+	Group   string
+	Teacher string
+	IsLab   bool
 }

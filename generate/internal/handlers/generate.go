@@ -1,26 +1,33 @@
 package handlers
 
 import (
-	model "generate/internal/models"
+	"generate/internal/models"
 	"generate/internal/service"
-
 	"github.com/gofiber/fiber/v2"
 )
 
-type RequestData struct {
-	Curriculums []model.Curriculum
-	Teachers    []model.Teacher
-	Classrooms  []model.Classroom
+type Data struct {
+	Teachers    []models.Teacher    `json:"teachers"`
+	Groups      []models.Group      `json:"groups"`
+	Curriculums []models.Curriculum `json:"curriculums"`
+	Classrooms  []models.Classroom  `json:"classrooms"`
 }
 
 func GenerateHandler(c *fiber.Ctx) error {
-
-	data := new(RequestData)
-	if err := c.BodyParser(data); err != nil {
-		return c.Status(fiber.StatusBadRequest).SendString(err.Error())
+	// TODO: middleware
+	var data Data
+	if err := c.BodyParser(&data); err != nil {
+		return err
 	}
 
-	service.GenerateSchedule(data.Curriculums, data.Teachers, data.Classrooms)
+	lessons, errs := service.GenerateSchedule(data.Teachers, data.Groups, data.Curriculums)
 
-	return c.JSON(data)
+	errsStr := make([]string, len(errs))
+	for i, err := range errs {
+		errsStr[i] = err.Error()
+	}
+	return c.JSON(fiber.Map{
+		"errors":  errsStr,
+		"lessons": lessons,
+	})
 }
