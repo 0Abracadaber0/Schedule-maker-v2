@@ -1,12 +1,15 @@
 package main
 
 import (
+	"context"
 	"generate/internal/config"
 	"generate/internal/router"
+	"github.com/gofiber/fiber/v2"
 	"log/slog"
 	"os"
-
-	"github.com/gofiber/fiber/v2"
+	"os/signal"
+	"syscall"
+	"time"
 )
 
 const (
@@ -33,10 +36,25 @@ func main() {
 
 	router.SetupRoutes(app, log)
 
-	err := app.Listen(":8088")
+	go func() {
+		err := app.Listen(":8088")
+		if err != nil {
+			panic(err)
+		}
+	}()
+
+	quit := make(chan os.Signal)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+	_, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	close(quit)
+	log.Info("Shutting down...")
+	err := app.Shutdown()
 	if err != nil {
-		return
+		panic(err)
 	}
+
 }
 
 func setupLogger(env string) *slog.Logger {
