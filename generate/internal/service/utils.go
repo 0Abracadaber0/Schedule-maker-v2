@@ -1,7 +1,7 @@
 package service
 
 import (
-	"errors"
+	"fmt"
 	"generate/internal/models"
 )
 
@@ -19,7 +19,6 @@ func findTeacher(
 	plan models.Plan,
 	lessonType models.LessonType,
 ) (string, error) {
-	// TODO: tests
 	var requiredLoad int
 
 	switch lessonType {
@@ -30,7 +29,8 @@ func findTeacher(
 	case models.Laboratory:
 		requiredLoad = plan.Laboratories * 2
 	default:
-		return "", errors.New("unknown lessonType")
+		fmt.Println("error")
+		return "", fmt.Errorf("lesson type not supported")
 	}
 
 	for i := range *teachers {
@@ -51,5 +51,6 @@ func findTeacher(
 		}
 	}
 
-	return "", errors.New("teacher not found")
+	fmt.Println("error")
+	return "", fmt.Errorf("teacher for %s %s not found", lessonType, plan.Name)
 }

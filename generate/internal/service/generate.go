@@ -17,6 +17,7 @@ func GenerateSchedule(
 
 		curriculum := findCurriculum(group, curriculums)
 		for _, plan := range curriculum.Subjects {
+			// TODO: учитывать flow для лекций
 
 			// поиск преподавателя для лекций
 			if plan.Lectures > 0 {
