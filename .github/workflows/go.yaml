@@ -20,20 +20,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check if folder exists
+        id: check-folder
+        run: |
+          if [ ! -d "${{ env.SERVICE_PATH }}" ]; then
+            echo "exists=false" >> $GITHUB_ENV
+          else
+            echo "exists=true" >> $GITHUB_ENV
+          fi
+
       - name: Set up Go
+        if: env.exists == 'true'
         uses: actions/setup-go@v4
         with:
-          go-version: '1.23'
-          cache-dependency-path: ${{ env.SERVICE_PATH }}/go.sum
+          go-version: '1.23.0'
 
       - name: Install dependencies
+        if: env.exists == 'true'
         working-directory: ${{ env.SERVICE_PATH }}
         run: go mod download
 
       - name: Build
+        if: env.exists == 'true'
         working-directory: ${{ env.SERVICE_PATH }}
         run: go build -v ./...
 
       - name: Test
+        if: env.exists == 'true'
         working-directory: ${{ env.SERVICE_PATH }}
         run: go test -v ./...
