@@ -8,9 +8,10 @@ const (
 	Laboratory LessonType = "Laboratory"
 )
 
-type Subject struct {
+type Teacher struct {
 	Name     string   `json:"name"`
-	Teachers []string `json:"teachers"`
+	Load     int      `json:"load"`
+	Subjects []string `json:"subjects"`
 }
 
 type Group struct {
@@ -24,15 +25,22 @@ type Curriculum struct {
 }
 
 type Plan struct {
-	Name         string   `json:"name"`
-	Lectures     []string `json:"lectures"`
-	Practices    []string `json:"practices"`
-	Laboratories []string `json:"laboratories"`
-	Flow         string   `json:"flow"`
+	Name         string `json:"name"`
+	Lectures     int    `json:"lectures"`
+	Practices    int    `json:"practices"`
+	Laboratories int    `json:"laboratories"`
+	Flow         string `json:"flow"`
 }
 
 type Classroom struct {
 	Name     string     `json:"name"`
 	Type     LessonType `json:"type"`
 	Subjects []string   `json:"subjects"`
+}
+
+type Lesson struct {
+	Subject string
+	Group   string
+	Teacher string
+	IsLab   bool
 }

@@ -7,7 +7,7 @@ import (
 )
 
 type Data struct {
-	Subjects    []models.Subject    `json:"subjects"`
+	Teachers    []models.Teacher    `json:"teachers"`
 	Groups      []models.Group      `json:"groups"`
 	Curriculums []models.Curriculum `json:"curriculums"`
 	Classrooms  []models.Classroom  `json:"classrooms"`
@@ -22,7 +22,7 @@ func GenerateHandler(c *fiber.Ctx) error {
 		return err
 	}
 
-	service.GenerateSchedule(data.Subjects, data.Groups, data.Curriculums, data.Classrooms)
+	service.GenerateSchedule(data.Teachers, data.Groups, data.Curriculums)
 
 	return c.SendStatus(fiber.StatusNoContent)
 }
