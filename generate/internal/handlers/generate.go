@@ -13,16 +13,21 @@ type Data struct {
 	Classrooms  []models.Classroom  `json:"classrooms"`
 }
 
-// TODO: presenter.go (https://github.com/gofiber/recipes/blob/master/clean-architecture/api/presenter/book.go)
-
 func GenerateHandler(c *fiber.Ctx) error {
-	// TODO: take logger
+	// TODO: middleware
 	var data Data
-	if err := c.BodyParser(data); err != nil {
+	if err := c.BodyParser(&data); err != nil {
 		return err
 	}
 
-	service.GenerateSchedule(data.Teachers, data.Groups, data.Curriculums)
+	lessons, errs := service.GenerateSchedule(data.Teachers, data.Groups, data.Curriculums)
 
-	return c.SendStatus(fiber.StatusNoContent)
+	errsStr := make([]string, len(errs))
+	for i, err := range errs {
+		errsStr[i] = err.Error()
+	}
+	return c.JSON(fiber.Map{
+		"errors":  errsStr,
+		"lessons": lessons,
+	})
 }
