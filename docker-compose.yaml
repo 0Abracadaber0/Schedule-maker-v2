@@ -1,0 +1,10 @@
+version: '3'
+services:
+  generate:
+    build:
+      context: ./generate
+      dockerfile: Dockerfile
+    ports:
+      - "8088:8088"
+    environment:
+      - CONFIG_PATH=./config/config.yaml

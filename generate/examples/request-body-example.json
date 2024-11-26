@@ -1,0 +1,76 @@
+{
+  "teachers": [
+    {
+      "name": "John Doe",
+      "load": 20,
+      "subjects": ["Math", "Physics"]
+    },
+    {
+      "name": "Jane Smith",
+      "load": 15,
+      "subjects": ["Biology", "Chemistry"]
+    }
+  ],
+  "groups": [
+    {
+      "name": "Group A",
+      "curriculum": "Curriculum 1"
+    },
+    {
+      "name": "Group B",
+      "curriculum": "Curriculum 2"
+    }
+  ],
+  "curriculums": [
+    {
+      "name": "Curriculum 1",
+      "subjects": [
+        {
+          "name": "Math",
+          "lectures": 2,
+          "practices": 2,
+          "laboratories": 0,
+          "flow": "Basic"
+        },
+        {
+          "name": "Physics",
+          "lectures": 2,
+          "practices": 2,
+          "laboratories": 1,
+          "flow": "Advanced"
+        }
+      ]
+    },
+    {
+      "name": "Curriculum 2",
+      "subjects": [
+        {
+          "name": "Biology",
+          "lectures": 2,
+          "practices": 2,
+          "laboratories": 1,
+          "flow": "Basic"
+        },
+        {
+          "name": "Chemistry",
+          "lectures": 2,
+          "practices": 2,
+          "laboratories": 1,
+          "flow": "Advanced"
+        }
+      ]
+    }
+  ],
+  "classrooms": [
+    {
+      "name": "Lab 101",
+      "type": "Laboratory",
+      "subjects": ["Chemistry", "Biology"]
+    },
+    {
+      "name": "Room 202",
+      "type": "Lecture",
+      "subjects": ["Math", "Physics"]
+    }
+  ]
+}
