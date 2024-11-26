@@ -1,0 +1,113 @@
+
+.login {
+    flex-grow: 1;                                       /*.login занимать все доступное пространство */
+    padding: 100px 50px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: var(--dark-border);
+    background-image: url('./../img/header-bg.png');
+    background-repeat: no-repeat;
+    background-size: 41%;
+    background-position: center center;
+    color: var(--header-text);
+    text-align: center;
+}
+
+.wrapper-login {
+    width: 520px;
+    color: #fff;
+
+    border: 2px solid var(--dark-border);
+    background-color: var(--dark-bg);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper-login h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper-login .input-box {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgb(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: white;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+    color: #fff;
+}
+
+.input-box img{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    width: 20px; 
+    height: 20px; 
+    object-fit: contain; 
+}
+
+.wrapper-login .remember{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remember label{
+    margin-left: 15px;
+}
+
+.remember label input{
+    accent-color: var(--white);
+    margin-right: 3px;
+}
+
+.remember a{
+    color: var(--white);
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.remember a:hover{
+    text-decoration: underLine;
+}
+
+.wrapper-login .btn{
+    margin-top: 15px;
+    width: 54%;
+    height: 45px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, .1);
+}
+
+.wrapper-login .register-link{
+    font-size: 14.5px;
+    margin-top: 20px;
+}
+
+.register-link a {
+    margin-left: 10px; 
+}
+
+
