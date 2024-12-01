@@ -2,76 +2,52 @@ package service
 
 import (
 	"generate/internal/models"
+	"math/rand"
+	"strings"
 )
 
-func GenerateSchedule(
-	teachers []models.Teacher,
-	groups []models.Group,
-	curriculums []models.Curriculum,
-	// classrooms []models.Classroom,
-) ([]models.Lesson, []error) {
-	var errs []error
-	var lessons []models.Lesson
+func isEndLab(s string) bool {
+	return strings.HasPrefix(s, "lab")
+}
 
-	for _, group := range groups {
+func GenerateAllLessons(data models.ScheduleGenerator) []map[string][]interface{} {
+	allLessons := []map[string][]interface{}{}
 
-		curriculum := findCurriculum(group, curriculums)
-		for _, plan := range curriculum.Subjects {
-			// TODO: учитывать flow для лекций
-
-			// поиск преподавателя для лекций
-			if plan.Lectures > 0 {
-				teacher, err := findTeacher(&teachers, plan, models.Lecture)
-				if err != nil {
-					errs = append(errs, err)
+	// Генерация лекций
+	for planName, lessons := range data.Plans {
+		for lessonName, lesson := range lessons {
+			teacher := data.Subjects[lessonName][rand.Intn(len(data.Subjects[lessonName]))]
+			for i := 0; i < lesson.Lectures; i++ {
+				streamCount := 0
+				for _, groupPlan := range data.Groups {
+					if groupPlan == planName {
+						streamCount++
+					}
 				}
-				// добавление лекций к списку пар
-				for i := 0; i < plan.Lectures; i++ {
-					lessons = append(lessons, models.Lesson{
-						Subject: plan.Name,
-						Group:   group.Name,
-						Teacher: teacher,
-						IsLab:   false,
-					})
-				}
+				allLessons = append(allLessons, map[string][]interface{}{
+					lessonName: {lesson.Stream, teacher, streamCount},
+				})
 			}
-
-			if plan.Practices > 0 {
-				// поиск преподавателя для практик
-				teacher, err := findTeacher(&teachers, plan, models.Practice)
-				if err != nil {
-					errs = append(errs, err)
-				}
-				// добавление практик к списку пар
-				for i := 0; i < plan.Practices; i++ {
-					lessons = append(lessons, models.Lesson{
-						Subject: plan.Name,
-						Group:   group.Name,
-						Teacher: teacher,
-						IsLab:   false,
-					})
-				}
-			}
-
-			if plan.Laboratories > 0 {
-				// поиск преподавателя для лабораторных
-				teacher, err := findTeacher(&teachers, plan, models.Laboratory)
-				if err != nil {
-					errs = append(errs, err)
-				}
-				// добавление лабораторных к списку пар
-				for i := 0; i < plan.Laboratories; i++ {
-					lessons = append(lessons, models.Lesson{
-						Subject: plan.Name,
-						Group:   group.Name,
-						Teacher: teacher,
-						IsLab:   true,
-					})
-				}
-			}
-
 		}
 	}
 
-	return lessons, errs
+	// Генерация практик и лабораторных
+	for group, plan := range data.Groups {
+		lessons := data.Plans[plan]
+		for lessonName, lesson := range lessons {
+			teacher := data.Subjects[lessonName][rand.Intn(len(data.Subjects[lessonName]))]
+			for i := 0; i < lesson.Practices; i++ {
+				allLessons = append(allLessons, map[string][]interface{}{
+					lessonName: {group, teacher},
+				})
+			}
+			for i := 0; i < lesson.Labs; i++ {
+				allLessons = append(allLessons, map[string][]interface{}{
+					lessonName: {group + "lab", teacher},
+				})
+			}
+		}
+	}
+
+	return allLessons
 }
