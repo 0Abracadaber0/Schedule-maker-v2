@@ -32,21 +32,24 @@
 
             <div class="wrapper-login">
 
-                <form action="">
+                <form id="form" action="">
                     <h1>Регистрация</h1>
                     <div class="input-box">
-                        <input type="text" placeholder="Логин" required>
+                        <input type="text" id="register-username" placeholder="Логин" required>
                         <img src="../img/icons/user.svg" alt="login-image">
+                        <div class="error"></div>
                     </div>
 
                     <div class="input-box">
-                        <input type="password" placeholder="Пароль" required>
+                        <input type="password" id="register-password" placeholder="Пароль" required>
                         <img src="../img/icons/lock-unlocked.svg" alt="login-image">
+                        <div class="error"></div>
                     </div>
 
                     <div class="input-box">
-                        <input type="password" placeholder="Повторите пароль" required>
+                        <input type="password" id="register-password2" placeholder="Повторите пароль" required>
                         <img src="../img/icons/lock.svg" alt="login-image">
+                        <div class="error"></div>
                     </div>
 
                     <div class="remember">
@@ -84,6 +87,9 @@
             </div>
         </div>
     </footer>
+
+    <script defer src="../js/formRegistrationValidation.js"></script>
+
 </body>
 </html> 
 
