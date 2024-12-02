@@ -16,6 +16,8 @@
     text-align: center;
 }
 
+
+
 .wrapper-login {
     width: 520px;
     color: #fff;
@@ -53,6 +55,28 @@
     padding: 20px 45px 20px 20px;
 }
 
+
+.input-box.success input{
+    border-color: #09c372;
+}
+
+
+.input-box.error input{
+    border-color: #ff3860;
+}
+
+.input-box .error {
+
+    margin-top: 5px;
+    margin-left: 15px;
+
+    text-align: left;
+    color: #ff3860;
+    font-size: 11px;
+    height: 13px;
+}
+
+
 .input-box input::placeholder{
     color: #fff;
 }
@@ -72,7 +96,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 14.5px;
-    margin: -15px 0 15px;
+    margin: 18px 0 15px;
 }
 
 .remember label{
