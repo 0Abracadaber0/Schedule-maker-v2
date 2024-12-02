@@ -1,4 +1,4 @@
-const loginForm = document.getElementById('login-form');  // форма входа
+const loginForm = document.getElementById('login-form');
 const loginUsername = document.getElementById('login-username');
 const loginPassword = document.getElementById('login-password');
 
@@ -61,7 +61,7 @@ const validateLoginInputs = () => {
         return; 
     }
 
-    // Если логин и пароль верны
+
     alert('Вход успешен!');
     // перенаправление на другую страницу
     // window.location.href = '/main';

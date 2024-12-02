@@ -89,6 +89,10 @@ html, body {
 
 
 .section {
+    flex-grow: 1;                                       /*.login занимать все доступное пространство */
+    padding: 100px 50px;
+    background-color: var(--dark-border);
+    background-position: center center;
     padding: 70px 0;
 }
 
