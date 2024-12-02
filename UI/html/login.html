@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classify</title>
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="shortcut icon" href="../img/Logo_BNTU.png"/>
+    <link rel="shortcut icon" href="../img/png/Logo_BNTU.png"/>
     
 </head>
 
@@ -29,19 +29,20 @@
 
     <div class="login">
         <div class="container">
-
             <div class="wrapper-login">
 
-                <form action="">
+                <form id="login-form" action="">
                     <h1>Вход</h1>
                     <div class="input-box">
-                        <input type="text" placeholder="Логин" required>
-                        <img src="../img/icons/user.svg" alt="login-image">
+                        <input type="text" id="login-username" placeholder="Логин" required>
+                        <img src="../img/icons/login-page/user.svg" alt="login-image">
+                        <div class="error"></div>
                     </div>
 
                     <div class="input-box">
-                        <input type="password" placeholder="Пароль" required>
-                        <img src="../img/icons/lock.svg" alt="login-image">
+                        <input type="password" id="login-password" placeholder="Пароль" required>
+                        <img src="../img/icons/login-page/lock.svg" alt="login-image">
+                        <div class="error"></div>
                     </div>
 
                     <div class="remember">
@@ -54,10 +55,8 @@
                     <div class="register-link">
                         <p>Нет аккаунта? <a class="nav-list__link" href="registration.html">Регистрация</a></p>
                     </div>
-                    
                 </form>
             </div>
-
         </div>
     </div>
 
@@ -67,10 +66,10 @@
             <div class="footer__wrapper">
                 <ul class="social">
                     <li class="social__item">
-                        <a href="#!"><img src="../img/icons/vk.svg" alt="link"></a>
+                        <a href="#!"><img src="../img/icons/socials/vk.svg" alt="link"></a>
                     </li>
                     <li class="social__item">
-                        <a href="#!"><img src="../img/icons/gitHub.svg" alt="link"></a>
+                        <a href="#!"><img src="../img/icons/socials/gitHub.svg" alt="link"></a>
                     </li>
                 </ul>
                 <div class="copyright">
@@ -79,6 +78,9 @@
             </div>
         </div>
     </footer>
+
+    <script defer src="../js/formLoginValidation.js"></script>
+
 </body>
 </html> 
 

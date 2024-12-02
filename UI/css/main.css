@@ -1,5 +1,6 @@
 @import "./reset.css";
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 @import "./header.css";
 @import "./navigation.css";
@@ -12,7 +13,8 @@
 
 /*
 font-family: "DM Sans", sans-serif;
-font-family: "Poppins", sans-serif; 
+font-family: "Poppins", sans-serif;
+font-family: "Open Sans", sans-serif;
 */
 
 
@@ -63,7 +65,7 @@ html, body {
     flex-direction: column;
     min-height: 100vh;
 
-    font-family: "DM Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
     letter-spacing: -0.5px;
 
     /* Color mode */
@@ -87,6 +89,10 @@ html, body {
 
 
 .section {
+    flex-grow: 1;                                       /*.login занимать все доступное пространство */
+    padding: 100px 50px;
+    background-color: var(--dark-border);
+    background-position: center center;
     padding: 70px 0;
 }
 
