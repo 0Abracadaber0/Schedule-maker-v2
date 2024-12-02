@@ -8,7 +8,7 @@
     align-items: center;
     
     background-color: var(--dark-border);
-    background-image: url('./../img/header-bg.png');
+    background-image: url('./../img/png/header-bg.png');
     background-repeat: no-repeat;
     background-size: 41%;
     background-position: center center;
