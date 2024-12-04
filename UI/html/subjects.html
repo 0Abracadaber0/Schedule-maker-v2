@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classify</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="shortcut icon" href="../img/png/Logo_BNTU.png"/>
+    
+</head>
+
+<body>
+
+    <nav class="nav --none-fixed">
+        <div class="container">
+            <div class="nav-row">
+                <a href=index.html class="logo"> <strong>Classify</strong> </a>
+                
+                
+                <ul class="nav-list">
+                    <li class="nav-list__item"><a href="index.html" class="nav-list__link">Проекты</a></li>
+                    <li class="nav-list__item"><a href="contacts.html" class="nav-list__link">Контакты</a></li>
+                    <li class="nav-list__item"><a href="registration.html" class="nav-list__link  nav-list__link--active">Регистрация</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div class="table__wrapper">
+
+        <div class="container">
+            <div class="table">
+                <table id="subjectsTable">
+                    
+                    <thead>
+                        <tr>
+                            <th>Название предмета</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr>
+                            <td><button class="editBtn">Языки программирования</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="editBtn">Алгоритмы и структуры данных</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="editBtn">Системное программирование</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="editBtn">Разработка приложений в визуальных средах</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="editBtn">Философия</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="editBtn">Физическая культура</button></td>
+                        </tr>                        
+                    </tbody>
+                
+                </table>
+                <!-- Кнопка добавления предмета после tbody -->
+                <div class="addSubjectContainer">
+                    <button id="addSubjectBtn" class="addSubjectBtn">Добавить предмет</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Модальное окно для редактирования -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Редактировать название предмета</h2>
+            <input type="text" id="subjectInput" />
+            
+            <!-- Контейнер для кнопок "Сохранить" и "Удалить" -->
+            <div class="modal-buttons">
+                <button id="saveBtn">Сохранить</button>
+                <button id="deleteBtn">Удалить строку</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно для добавления нового предмета -->
+    <div id="addSubjectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Добавить новый предмет</h2>
+            <input type="text" id="newSubjectInput" placeholder="Введите название предмета" />
+            
+            <!-- Контейнер для кнопки "Добавить" -->
+            <div class="modal-buttons">
+                <button id="addSubjectBtnModal">Добавить</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__wrapper">
+                <ul class="social">
+                    <li class="social__item">
+                        <a href="#!"><img src="../img/icons/socials/vk.svg" alt="link"></a>
+                    </li>
+                    <li class="social__item">
+                        <a href="#!"><img src="../img/icons/socials/gitHub.svg" alt="link"></a>
+                    </li>
+                </ul>
+                <div class="copyright">
+                    <p>© 2024 classify.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script defer src="../js/renameSubject.js"></script>
+    <script defer src="../js/addSubject.js"></script>
+
+</body>
+</html>

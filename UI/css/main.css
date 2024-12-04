@@ -4,9 +4,11 @@
 
 @import "./header.css";
 @import "./navigation.css";
+@import "./table.css";
 @import "./section.css";
 @import "./contacts.css";
 @import "./login.css";
+@import "./modal.css";
 @import "./footer.css";
 @import "./media.css";
 

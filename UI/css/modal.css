@@ -1,0 +1,100 @@
+/* Стили для модального окна */
+#editModal, #addSubjectModal, #editSubjectInput {
+    display: none;  /* Окно скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* Тень для затемнения фона */
+    justify-content: center;  /* Центрируем по горизонтали */
+    align-items: center;     /* Центрируем по вертикали */
+    overflow: auto; /* Позволяет прокручивать модальное окно, если оно слишком большое */
+}
+
+/* Контейнер с контентом в модальном окне */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;  /* Ограничиваем максимальную ширину окна */
+    min-height: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;  /* Вертикальное размещение элементов */
+    justify-content: space-between;
+    position: relative;  /* Для позиционирования кнопки закрытия */
+}
+
+/* Кнопка закрытия модального окна */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+/* Заголовок в модальном окне */
+h2 {
+    margin-right: 40px;  /* Отступ справа для заголовка, чтобы не перекрывался кнопкой */
+}
+
+/* Кнопки "Сохранить" и "Удалить" */
+#saveBtn, #deleteBtn, #addSubjectBtnModal, #saveEditBtn {
+    margin-top: 20px;  /* Отступ сверху */
+    padding: 10px 20px;
+    background-color: #4CAF50;  /* Зеленый для "Сохранить" */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 160px;
+}
+
+#saveBtn:hover, #deleteBtn:hover {
+    background-color: #45a049;  /* Темно-зеленый при наведении */
+}
+
+#deleteBtn {
+    background-color: #f44336;  /* Красный для "Удалить" */
+}
+
+#deleteBtn:hover {
+    background-color: #e53935;  /* Темно-красный при наведении */
+}
+
+/* Контейнер для кнопок внутри модального окна */
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;  /* Расстояние между кнопками */
+}
+
+/* Поле ввода для изменения названия предмета */
+#subjectInput, #newSubjectInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    margin-top: 15px;
+    border: 2px solid #ccc;  /* Обводка для поля ввода */
+    border-radius: 5px;
+    outline: none;
+}
+
+#subjectInput:focus {
+    border-color: #4CAF50;  /* Зеленая обводка при фокусе */
+}
+
+#newSubjectInput:focus {
+    border-color: #4CAF50;  /* Зеленая обводка при фокусе */
+}
