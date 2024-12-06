@@ -30,9 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Обработчик закрытия модального окна
-span.onclick = function() {
-    modal.style.display = "none";  // Закрываем модальное окно
-    currentButton = null;  // Сбрасываем текущую кнопку
+var spanEdit = document.getElementsByClassName("close")[0]; // Кнопка закрытия для редактирования
+spanEdit.onclick = function() {
+    modal.style.display = "none";
+    currentButton = null;
 };
 
 // Сохранение изменений
