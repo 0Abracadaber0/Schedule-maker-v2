@@ -74,10 +74,11 @@ addSubjectBtnModal.addEventListener('click', function() {
 });
 
 // Обработчик закрытия модального окна
-span.onclick = function() {
-    modal.style.display = "none";  // Закрываем модальное окно
-    currentButton = null;  // Сбрасываем текущую кнопку
+var spanAdd = document.getElementsByClassName("close")[1]; // Кнопка закрытия для добавления
+spanAdd.onclick = function() {
+    addSubjectModal.style.display = "none";
 };
+
 
 // Сохранение изменений
 saveBtn.addEventListener('click', function() {

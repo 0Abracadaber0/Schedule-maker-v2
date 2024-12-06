@@ -12,10 +12,9 @@
     width: 100%;
     max-width: 800px; /* Устанавливаем максимальную ширину, чтобы таблица не растягивалась */
     text-align: center;  /* Центрируем текст по горизонтали */
-    border-spacing: 0 10px;  /* Отступ 10px между строками */
+    border-spacing: 0 20px;  /* Отступ 20px между строками */
     border-collapse: separate;
 }
-
 
 .table th {
     color: var(--white);
@@ -23,18 +22,13 @@
     font-weight: 600;
     text-align: center;  /* Центрируем текст по горизонтали */
     padding: 20px 0;
-    
-}
-
-.table tr {
-    
-    border-spacing: 20px;
 }
 
 .table td {
-    background-color: var(--accent);
+    width: 100%;
+    height: 5vh;
+    background-color: var(--dark-border);
     border-radius: 10px;
-    padding: 15px 20px; /* Устанавливаем padding для ячеек */
     font-size: 20px;
     font-weight: 400;
     text-align: center;
@@ -42,15 +36,33 @@
     transition: opacity 0.1s ease-in;
     word-wrap: break-word;
     white-space: normal;
-    
+    padding: 15px;
+      /* Добавляем паддинг для ячеек, чтобы контент не был прижат к краям */
 }
 
-/* Установка отступов между кнопками */
-.table td button {
-    margin-bottom: 0px; /* Отступы между кнопками */
+.table tr {
+    margin-bottom: 20px; /* Устанавливаем отступ между строками */
 }
 
+/* Стиль для кнопки "Редактировать предмет" */
+.editBtn {
+    background-color: var(--accent);  /* Зеленый цвет */
+    color: white;                /* Белый цвет текста */
+    border: none;                /* Без границ */
+    border-radius: 5px;          /* Скругленные углы */
+    padding: 15px 30px;           /* Паддинг внутри кнопки для увеличения области клика */
+    font-size: 18px;             /* Размер шрифта для кнопки */
+    cursor: pointer;            /* Курсор в виде руки при наведении */
+    transition: opacity 0.3s ease;  /* Плавное изменение фона */
+    width: 100%;                 /* Кнопка растягивается на всю ширину ячейки */
+    box-sizing: border-box;      /* Учитываем паддинг в общей ширине */
+    text-align: center;
+}
 
+/* Эффект наведения на кнопку */
+.editBtn:hover {
+    opacity: 0.65;  /* Более темный зеленый при наведении */
+}
 
 /* Стиль для кнопки "Добавить предмет" */
 .addSubjectBtn {
@@ -58,10 +70,10 @@
     color: white;                /* Белый цвет текста */
     border: none;                /* Без границ */
     border-radius: 5px;          /* Скругленные углы */
-    padding: 8px 16px;           /* Отступы внутри кнопки */
-    font-size: 16px;             /* Меньший размер шрифта */
+    padding: 12px 20px;           /* Паддинг внутри кнопки */
+    font-size: 16px;             /* Размер шрифта */
     cursor: pointer;            /* Курсор в виде руки при наведении */
-    transition: background-color 0.3s ease;  /* Плавное изменение фона */
+    transition: opacity 0.1s ease-in;  /* Плавное изменение фона */
     margin-top: 20px;            /* Отступ сверху для отделения от таблицы */
     display: block;              /* Делаем кнопку блочной, чтобы она шла на новой строке */
     width: 200px;                /* Фиксированная ширина кнопки */
@@ -70,7 +82,7 @@
     margin-bottom: 25px;
 }
 
-/* Эффект наведения на кнопку */
+/* Эффект наведения на кнопку "Добавить предмет" */
 .addSubjectBtn:hover {
-    background-color: #45a049;  /* Более темный зеленый при наведении */
+    opacity: 0.8;  /* Более темный зеленый при наведении */
 }
