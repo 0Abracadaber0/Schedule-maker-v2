@@ -1,0 +1,371 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: #1a1f36;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
+}
+
+html, body {
+    background-color: #f2f2f2;
+
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: #737373;
+    text-decoration: unset;
+}
+
+#header {
+    font-family: "Raleway", Helvetica, sans-serif;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+#header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#header .tabs ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#header .tabs ul li {
+    margin-right: 10px;
+    border-right: 1px solid #fff;
+    padding-right: 10px;
+}
+
+#header .tabs ul li:last-child {
+    margin-right: 0;
+    border-right: none;
+}
+
+#header .tabs ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tab {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+
+    background-color: inherit;
+    color: #fff;
+    float: left;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #535353;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #484848;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.authors {
+    display: flex;
+    justify-content: space-evenly;
+
+    height: 70%;
+}
+
+.person {
+    width: 30%;
+    text-align: center;
+}
+
+.person img {
+    padding-top: 50px;
+
+    position: relative;
+
+    width: 400px;
+    height: 450px;
+}
+
+.person h3 {
+    padding-top: 1%;
+}
+
+footer {
+    margin-top: auto;
+
+    height: 5%;
+
+    display: flex;
+    justify-content: center;
+}
+
+footer a {
+    color: #697386;
+    font-weight: 600;
+    margin: 0 10px;
+}
+
+footer span {
+    font-size: 14px;
+    text-align: center;
+}
+
+.about {
+    margin-top: 5%;
+
+    display: flex;
+    justify-content: space-evenly;
+    height: 50%;
+}
+
+.about img {
+    width: 100%;
+}
+
+.about div {
+    width: 40%;
+
+    font-size: 20px;
+}
+
+.about .p {
+    margin-top: 5%;
+}
+
+.error404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+    font-size: 40px;
+}
+
+.table {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    height: 83vh;
+
+    overflow: auto;
+}
+
+table {
+
+    border-collapse: collapse;
+    height: 20%;
+
+    font-size: 25px;
+}
+
+tr {
+    border-bottom: 1px solid #333;
+    height: 50px;
+}
+
+th {
+    text-align: left;
+    padding-bottom: 20px;
+
+}
+
+.buttons {
+    margin-left: 20px;
+    height: 50px;
+
+}
+
+.buttons button {
+    width: 150px;
+
+    font-size: 25px;
+
+    border-radius: 5px;
+    border-width: 0;
+    background-color: #d7d7d7;
+}
+
+.buttons button:hover {
+    transition: background-color 0.3s ease-in;
+    background-color: #838383;
+}
+
+.add_new {
+    border-bottom: 0;
+}
+
+.add_new input[type="text"] {
+    width: 200px;
+
+    font-size: 25px;
+
+    border-radius: 5px;
+    border-width: 0;
+}
+
+.add_new input[type="submit"] {
+    width: 150px;
+
+    font-size: 25px;
+
+    border-radius: 5px;
+    border-width: 0;
+    background-color: #d7d7d7;
+}
+
+.add_new input[type="submit"]:hover {
+    transition: background-color 0.3s ease-in;
+    background-color: #838383;
+}
+
+/* Убираем стрелки */
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Закругляем углы и задаем цвет полосы прокрутки */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #888;
+}
+
+/* Задаем цвет трека полосы прокрутки */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Задаем ширину полосы прокрутки */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #333;
+}
+
+.curriculum_table {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    height: 83vh;
+
+    overflow: auto;
+}
+
+.curriculum_table table {
+    width: 90%;
+}
+
+select {
+    border: 0;
+
+    font-size: 25px;
+
+    background-color: #f2f2f2;
+}
+
+button {
+    cursor: pointer;
+}
+td input {
+    font-size: 25px;
+
+    border: 0;
+
+    background-color: #f2f2f2;
+}
+
+td, th {
+    padding-left: 10px;
+}
+
+.title {
+    padding-top: 50px;
+    text-align: center;
+
+    font-size: 40px;
+}
+
+ul {
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-bottom: 10px;
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-size: 25px;
+
+    margin-left: 35%;
+    margin-top: 5%;
+    width: 30%;
+}
+
+.order input[type="submit"] {
+    font-size: 25px;
+
+    border-radius: 5px;
+    border-width: 0;
+    background-color: #d7d7d7;
+}
+
+.order input[type="submit"]:hover {
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-in;
+    background-color: #838383;
+}
+
+.order label, input[type="submit"] {
+    margin-top: 10px;
+}
+
+input[type="checkbox"] {
+    accent-color: #333333;
+}
+
+input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+}
