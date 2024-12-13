@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule maker</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="shortcut icon" href="../static/images/Logo_BNTU.png"/>
+</head>
+<body>
+<header id="header">
+    <h1><a href="/main">Schedule maker</a></h1>
+    <nav class="tabs">
+        <div class="tab">
+            <a href="http://127.0.0.1:8000/tables/classroom"><button class="tablinks">Аудитории</button></a>
+            <a href="http://127.0.0.1:8000/tables/curriculum"><button class="tablinks">Учебные планы</button></a>
+            <a href="http://127.0.0.1:8000/tables/group"><button class="tablinks">Группы</button></a>
+            <a href="http://127.0.0.1:8000/tables/subject"><button class="tablinks" >Предметы</button></a>
+            <a href="http://127.0.0.1:8000/logout"><button class="tablinks">Выйти</button></a>
+        </div>
+    </nav>
+</header>
+
+<div class="curriculum_table">
+    <table>
+        <tr>
+            <th>Учебный план</th>
+            <th>Предмет</th>
+            <th>Кол-во лекций</th>
+            <th>Кол-во практик</th>
+            <th>Кол-во лабораторных</th>
+            <th>Поток</th>
+        </tr>
+        {% for subject_curriculum in subjects_curriculums %}
+            <tr>
+                <td>{{ subject_curriculum[1].name}}</td>
+                <td>{{ subject_curriculum[0].subject_name}}</td>
+                <td>{{ subject_curriculum[1].amount_lectures}}</td>
+                <td>{{ subject_curriculum[1].amount_practices}}</td>
+                <td>{{ subject_curriculum[1].amount_labs}}</td>
+                <td>{{ subject_curriculum[1].stream}}</td>
+                <td class="buttons">
+                    <a href="http://127.0.0.1:8000/tables/curriculum-delete/{{subject_curriculum[0].id}}/{{subject_curriculum[1].id}}">
+                        <button>Удалить</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        <tr class="add_new">
+            <form method="post">
+                <td><label><input type="text" name="name" placeholder="Учебный план" required></label></td>
+                <td>
+                    <label>
+                        <select name="subject_name">
+                            {% for subject in subjects %}
+                            <option>{{subject}}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+                </td>
+                <td><label><input type="text" name="lectures" placeholder="Лекции" required></label></td>
+                <td><label><input type="text" name="practices" placeholder="Практики" required></label></td>
+                <td><label><input type="text" name="labs" placeholder="Лабораторные" required></label></td>
+                <td><label><input type="text" name="stream" placeholder="Поток" required></label></td>
+
+                <td class="buttons"><input type="submit" value="Добавить"></td>
+            </form>
+        </tr>
+    </table>
+</div>
+
+
+<footer>
+    <span><a href="/main">© Schedule maker</a></span>
+    <span><a href="/static-pages/about-authors">Контакты</a></span>
+    <span><a href="/static-pages/about-site">О сайте</a></span>
+</footer>
+</body>
+</html>
