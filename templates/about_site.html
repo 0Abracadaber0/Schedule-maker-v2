@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="title">Генератор расписания</h2>
+<div class="about">
+    <div>
+        <img src="../static/images/img.png" alt="">
+    </div>
+    <div class="p">
+        <p>
+            Программа позволяет создать расписание для высшего учебного заведения. Для его создания пользователю надо
+            заполнить 4 таблиц:
+        </p>
+        <ul>
+            <li>Таблица предметов</li>
+            <li>Таблица аудиторий</li>
+            <li>Таблица учебных планов</li>
+            <li>Таблица групп</li>
+        </ul>
+
+        <p>
+            Каждая из таблиц привязана к базе данных, которая в свою очередь привязана к каждому отдельному
+            пользователю.
+        </p>
+
+    </div>
+</div>
+
+<footer>
+    <span><a href="/main">© Schedule maker</a></span>
+    <span><a href="/static-pages/about-authors">Контакты</a></span>
+    <span><a href="/static-pages/about-site">О сайте</a></span>
+</footer>
+<script src="../static/js/index.js"></script>
+{% endblock %}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule maker</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="shortcut icon" href="../static/images/Logo_BNTU.png"/>
+</head>
+<body>
+<header id="header">
+    <h1><a href="/main">Schedule maker</a></h1>
+    <nav class="tabs">
+        <div class="tab">
+          <button class="tablinks" onclick="document.location='/tables/classroom'">Аудитории</button>
+          <button class="tablinks" onclick="document.location='/tables/curriculum'" >Учебные планы</button>
+          <button class="tablinks" onclick="document.location='tables/group'">Группы</button>
+          <button class="tablinks" onclick="document.location='/tables/subject'">Предметы</button>
+            <button class="tablinks" onclick="document.location='/logout'">Выйти</button>
+        </div>
+    </nav>
+</header>
+
+<div class="table">
+    <table>
+        <tr>
+            <th width="150px">Аудитория</th>
+            <th width="250px">Тип</th>
+            <th>Предмет</th>
+        </tr>
+        {% for subject_classroom in subjects_classrooms %}
+                <tr>
+                    <td>{{subject_classroom[1].name}}</td>
+                    <td>{{subject_classroom[1].type}}</td>
+                    <td>{{subject_classroom[0].subject_name}}</td>
+                    <td class="buttons">
+                        <a href="http://127.0.0.1:8000/tables/classroom-delete/{{subject_classroom[0].id}}/{{subject_classroom[1].id}}">
+                        <button>Удалить</button></a></td>
+                </tr>
+        {% endfor %}
+        <tr class="add_new">
+            <form method="post">
+                <td><label><input name="name" placeholder="Аудитория" required></label></td>
+                <td>
+                    <label>
+                        <select name="type">
+                            <option>Лекция</option>
+                            <option>Практика</option>
+                            <option>Лабораторная</option>
+                        </select>
+                    </label>
+                <td>
+                <label>
+                    <select name="subject">
+                        {% for subject in subjects%}
+                            <option>{{subject}}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+            </td>
+            <td class="buttons"><button type="submit">Добавить</button></td>
+            </form>
+        </tr>
+    </table>
+</div>
+
+
+<footer>
+    <span><a href="/main">© Schedule maker</a></span>
+    <span><a href="/static-pages/about-authors">Контакты</a></span>
+    <span><a href="/static-pages/about-site">О сайте</a></span>
+</footer>
+</body>
+</html>
